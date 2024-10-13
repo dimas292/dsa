@@ -1,11 +1,21 @@
-const number = [1, 2, 3, 4, 5]
+class MyArr {
+	constructor() {
+		this.length = 0;
+		this.data = {};
+	}
 
-const getElement = (arr, index) => {
-	return arr[index]
-} 
+	push(item){
+		this.data[this.length] = item
+		this.length++
+		return this.length
+	}
+}
 
-console.log(getElement(number, 3))
+const myNewArray = new MyArr()
 
-const sayHell0 = (name) => `hello ${name}`
+myNewArray.push('apple')
+myNewArray.push('orange')
+myNewArray.push('mango')
+myNewArray.push('coklat')
 
-console.log(sayHell0("dimas"))
+console.log(myNewArray)

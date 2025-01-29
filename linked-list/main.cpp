@@ -38,7 +38,6 @@ class LinkedList {
     }
     void append(int value){
         Node* newNode = new Node(value);
-        newNode->next = nullptr; 
 
         if(length == 0){
             head = newNode;
@@ -48,6 +47,38 @@ class LinkedList {
             tail = newNode; 
         }
         length += 1; 
+    }
+
+  void deleteLast(){
+        if(length == 0) return; 
+        Node* temp = head;
+        Node* prev = head; 
+        if(length == 1){
+            head = nullptr; 
+            tail = nullptr; 
+        }else {
+            while(temp->next){
+            prev = temp; 
+            temp = temp->next; 
+        }
+        prev->next = nullptr; 
+        tail = prev;
+        delete temp; 
+        length--; 
+        }
+    }
+
+    void prepend(int value){
+        Node* newNode = new Node(value);
+        if(length == 0){
+            head = newNode; 
+            tail = newNode; 
+        }
+
+        Node* temp = head;
+         
+
+
     }
 
     void printList() {
@@ -91,8 +122,7 @@ int main() {
     myLinkedList1->append(11);
     myLinkedList1->append(20);
     myLinkedList1->append(9);
-    myLinkedList1->appendAtBegining(90);
-    myLinkedList1->appendAtBegining(100);
+    myLinkedList1->deleteLast();
     myLinkedList1->getHead();
     myLinkedList1->getTail();
     myLinkedList1->getLength();
